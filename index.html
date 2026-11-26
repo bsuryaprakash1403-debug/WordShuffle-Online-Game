@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Play WordShuffle, challenge friends and climb the leaderboard.">
+<title>WordShuffle | Game Zone</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><main class="shell">
+<header><a class="brand" href="/">🎮 WORD<span>SHUFFLE</span></a><a class="navlink" href="/leaderboard">🏆 Leaderboard</a></header>
+<section class="hero"><p class="eyebrow">GAME ZONE • TECH FUN ARENA</p><h1>Unscramble the <span>fun.</span></h1><p>Play solo or challenge your friends. Think fast and find the word!</p></section>
+<div class="mode-switch"><button id="solo-tab" class="mode active">🧠 Play Solo</button><button id="friend-tab" class="mode">👥 Friends Challenge</button></div>
+<section class="game-card">
+<div id="challenge-banner" class="challenge-banner" hidden></div>
+<div class="stats"><div class="stat"><small>LEVEL</small><b id="level-label">EASY</b></div><div class="stat"><small>TIME</small><b>⏱ <span id="time">60</span>s</b></div><div class="stat"><small>SCORE</small><b>⭐ <span id="score">0</span></b></div></div>
+<div id="solo-controls"><div class="levels"><button class="level selected" data-level="Easy">Easy</button><button class="level" data-level="Medium">Medium</button><button class="level" data-level="Hard">Hard</button></div></div>
+<div id="letters" class="letters">W O R D</div><p id="message" class="message">Arrange the letters to find the word.</p>
+<form id="answer-form"><input id="answer" autocomplete="off" placeholder="Type your answer..." maxlength="20" required><button class="primary" type="submit">Check answer</button></form>
+<div class="actions"><button id="hint" class="secondary">💡 Hint</button><button id="skip" class="secondary">⏭ Skip</button><button id="restart" class="secondary">↻ Restart</button></div>
+<p id="hint-text" class="hint"></p>
+<div id="friend-tools" class="friend-tools" hidden><p>Invite friends to solve the same word and compare scores.</p><button id="create-challenge" class="primary">🔗 Create & share challenge</button><div id="share-result" hidden><input id="share-url" readonly><button id="copy-link" class="secondary">Copy link</button><button id="whatsapp" class="whatsapp">Share on WhatsApp</button></div></div>
+</section>
+<section class="player-row"><input id="player" placeholder="Your name for the leaderboard" maxlength="24"><button id="save" class="primary">Save score</button></section>
+<section class="leader-preview"><div><h2>🏆 Top players</h2><p>See who is leading the game.</p></div><a href="/leaderboard">View leaderboard →</a></section>
+<footer>WordShuffle • Play, Think, Learn, Challenge!</footer></main>
+<script>window.CHALLENGE = {{ challenge|tojson if challenge else 'null' }};</script><script src="/static/script.js"></script></body></html>
